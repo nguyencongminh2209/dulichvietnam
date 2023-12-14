@@ -39,7 +39,7 @@ function redirectToNewPage(city) {
     // Xây dựng URL mới dựa trên thành phố được chọn
     var newPageUrl;
     if (city === 'dalat') {
-        newPageUrl = 'Dalat/dalat.html?city=' + city;
+        newPageUrl = 'DaLat/dalat.html?city=' + city;
     } else if (city === 'hoian') {
         newPageUrl = 'HoiAn/HoiAn.html?city=' + city;
     }
