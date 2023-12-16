@@ -54,25 +54,100 @@ function redirectToNewPage(city) {
     }
     else if (city === 'hagiang') {
         newPageUrl = 'HaGiang/HaGiang.html?city=' + city;
-    }
+    } else if (city === 'hanoi') {
+        newPageUrl = 'HaNoi/HaNoi.html?city=' + city;
+    } 
     // Chuyển hướng trang
     window.location.href = newPageUrl;
 }
-function displayTourList(cityName) {
-    var cityInfoDiv = document.getElementById("cityInfo");
 
-    // Hiển thị danh sách tour tương ứng với thành phố
-    var tourListHTML = `<h3>Danh sách tour du lịch tại ${cityName}</h3>
-        <ul>
-            <li><a href="#" onclick="displayTourDetail('Tour 1')">Tour 1</a></li>
-            <li><a href="#" onclick="displayTourDetail('Tour 2')">Tour 2</a></li>
-            <li><a href="#" onclick="displayTourDetail('Tour 3')">Tour 3</a></li>
-            <!-- Thêm các tour khác nếu cần -->
-        </ul>`;
-    cityInfoDiv.innerHTML = tourListHTML;
+
+var tourList = {
+    hanoi: [
+        { 
+            name: "Tour Hà Nội 3 Ngày 2 Đêm",
+            description: "Khám phá những địa điểm nổi tiếng ở Hà Nội trong 3 ngày 2 đêm. Bạn sẽ thăm Quảng trường Ba Đình, Hoàng thành Thăng Long, và thưởng thức ẩm thực độc đáo.",
+            price: "$300",
+            duration: "3 ngày 2 đêm",
+            highlights: [
+                "Quảng trường Ba Đình",
+                "Hoàng thành Thăng Long",
+                "Ẩm thực đặc sắc"
+            ]
+        },
+        // Thêm các tour khác cho Hà Nội
+    ],
+    danang: [
+        { 
+            name: "Tour Đà Nẵng - Hội An 4 Ngày 3 Đêm",
+            description: "Du lịch qua Đà Nẵng và Hội An trong 4 ngày 3 đêm. Bạn sẽ thăm Bà Nà Hills, Cầu Rồng và phố cổ Hội An.",
+            price: "$450",
+            duration: "4 ngày 3 đêm",
+            highlights: [
+                "Bà Nà Hills",
+                "Cầu Rồng",
+                "Phố cổ Hội An"
+            ]
+        },
+        // Thêm các tour khác cho Đà Nẵng
+    ],
+    hochiminh: [
+        { 
+            name: "Tour Sài Gòn Mới",
+            description: "Khám phá những địa điểm mới và sôi động của Sài Gòn. Bạn sẽ thăm các quận trung tâm, thưởng thức ẩm thực đa dạng.",
+            price: "$280",
+            duration: "3 ngày 2 đêm",
+            highlights: [
+                "Quận trung tâm",
+                "Ẩm thực đa dạng"
+            ]
+        },
+        // Thêm các tour khác cho Sài Gòn
+    ],
+};
+
+function searchTour() {
+    var citySelect = document.getElementById("citySelect");
+    var selectedCity = citySelect.value;
+    var tourListContainer = document.getElementById("tourList");
+    var selectedCityTours = tourList[selectedCity];
+
+    // Xóa nội dung cũ trong tourListContainer
+    tourListContainer.innerHTML = "";
+
+    if (selectedCityTours) {
+        // Hiển thị danh sách tour cho thành phố đã chọn
+        for (var i = 0; i < selectedCityTours.length; i++) {
+            var tour = selectedCityTours[i];
+            var tourItem = document.createElement("div");
+            tourItem.classList.add("tour-item");
+            tourItem.innerHTML = `
+                <h2>${tour.name}</h2>
+                <p>${tour.description}</p>
+                <p>Giá: ${tour.price} | Thời gian: ${tour.duration}</p>
+                <p>Điểm nổi bật: ${tour.highlights.join(", ")}</p>
+                <button onclick="bookTour('${tour.name}')">Đặt tour</button>
+            `;
+            tourListContainer.appendChild(tourItem);
+        }
+    } else {
+        var noTourMessage = document.createElement("p");
+        noTourMessage.textContent = "Không có tour nào cho địa điểm đã chọn.";
+        tourListContainer.appendChild(noTourMessage);
+    }
+    document.getElementById('tourList').style.display = 'block';
+
 }
 
-function displayTourDetail(tourName) {
-    // Mở modal hoặc thực hiện các hành động khác để hiển thị chi tiết tour
-    alert("Thông tin chi tiết về " + tourName);
+
+
+function bookTour(tourName) {
+    console.log("Đã đặt tour:", tourName);
+    alert(`Bạn đã đặt tour "${tourName}" thành công!`);
+    document.getElementById('tourList').style.visibility = 'hidden';
+    document.getElementById('tourList').style.position = 'absolute';
+
+
 }
+
+
