@@ -23,31 +23,31 @@
     <div class="video-container">
         <video src="Video/video.mp4" autoplay muted loop></video>
     </div>
-    #
-    <div class="header-container">
-    	<h1>Khám phá</h1>
-    	<p>Địa điểm đẹp</p>
-    	<form action="" onsubmit="return searchTour()">
-        	<h1>Bạn muốn đi đâu?</h1>
-        	<p>Địa điểm</p>
-       		<select name="citySelect" id="citySelect">
-            	<option value="#">--Xin mời chọn địa điểm--</option>
-            	<option value="hanoi">Hà Nội</option>
-            	<option value="danang">Đà Nẵng</option>
-            	<option value="hochiminh">Hồ Chí Minh</option>
-        	</select>
-        	<p>Số người</p>
-        	<input type="number" min="1" placeholder="Bạn đi bao nhiêu người" id="numberOfPeople">
-        	<p>Ngày đi</p>
-        	<input type="date" id="departureDate">
-        	<p>Ngày về</p>
-        	<input type="date" id="returnDate">
-        	<button type="submit">Tìm Kiếm</button>
-    	</form>
-    <div id="cityInfo"></div>
+<div class="header-container">
+    <h1>Khám phá</h1>
+    <p>Địa điểm đẹp</p>
+    <form action="" onsubmit="return searchTour()">
+        <h1>Bạn muốn đi đâu?</h1>
+        <p>Địa điểm</p>
+        <select name="citySelect" id="citySelect">
+            <option value="#">--Xin mời chọn địa điểm--</option>
+            <option value="hanoi">Hà Nội</option>
+            <option value="danang">Đà Nẵng</option>
+            <option value="hochiminh">Hồ Chí Minh</option>
+        </select>
+        <p>Số người</p>
+        <input type="number" min="1" placeholder="Bạn đi bao nhiêu người" id="numberOfPeople">
+        <p>Ngày đi</p>
+        <input type="date" id="departureDate">
+        <p>Ngày về</p>
+        <input type="date" id="returnDate">
+        <button type="button" onclick="searchTour()">Tìm Kiếm</button>
+    </form>
+    <div id="tourList"></div>
 </div>
 
-    #
+
+</div>
    </header>
 <!-- -----------NICE PLACE---------- -->
 <section class="nice-place">
@@ -66,7 +66,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <p>Hà Nội là thủ đô, thành phố trực thuộc trung ương và là một đô thị loại đặc biệt của nước Cộng hòa Xã hội chủ nghĩa Việt Nam. </p>
-                    <button class="btn">Click vào để mua tour</button>
+                    <button class="btn" onclick="redirectToNewPage('hanoi')">Khám phá</button>
                 </div>
             </div>
             <div class="nice-place-item">
@@ -81,7 +81,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <p>Đà Nẵng là một thành phố trực thuộc trung ương, nằm trong vùng Duyên hải Nam Trung Bộ. Đây là một thành phố vừa có núi cao, sông sâu, đồi dốc.</p>
-                    <button class="btn">Click vào để mua tour</button>
+                    <button class="btn" onclick="redirectToNewPage('danang')">Khám phá</button>
                 </div>
             </div>
             <div class="nice-place-item">
@@ -96,7 +96,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <p>Thành phố Hồ Chí Minh, còn gọi bằng tên cũ phổ biến là Sài Gòn, là thành phố lớn nhất Việt Nam và là một siêu đô thị trong tương lai gần. </p>
-                    <button class="btn">Click vào để mua tour</button>
+                    <button class="btn" onclick="redirectToNewPage('HCM')">Khám phá</button>
                 </div>
             </div>
         </div>
@@ -108,30 +108,14 @@
         <h1 class="h1-style ">About</h1>
         <div class="about-content row">
             <div class="about-content-left">
-                <img src="image/think.jpg" alt="">
+                <img src="image/season.jpg" alt="">
             </div>
             <div class="about-content-right">
-                <h2>Tại sao bạn nên chọn chúng tôi?</h2>
-                <p>Chúng tôi là công ty hàng đầu về cung cấp dịch vụ về lữ hành nội địa và quốc tế.</p>
-                <p>Về chất lượng dịch vụ: Chúng tôi cung cấp các dịch vụ chất lượng cao và đảm bảo an toàn cho khách hàng của mình.</p>
-                <p>Đội ngũ nhân viên chuyên nghiệp: Có đội ngũ nhân viên chuyên nghiệp và am hiểu về du lịch, sẽ giúp bạn có được những lời khuyên và hướng dẫn tốt nhất để có một chuyến đi thành công.</p>
-                <p>Sự đảm bảo và bảo hiểm:  Chúng tôi cung cấp các dịch vụ bảo hiểm cho khách hàng của mình để đảm bảo an toàn và đáp ứng được các yêu cầu của pháp luật.</p>
-                <p>Giá cả hợp lý: Cung cấp các giá cả hợp lý và minh bạch, không có chi phí ẩn.</p>
-                <button class="btn">Tìm Hiểu Thêm</button>
-            </div>
-        </div>
-        <div class="service row">
-            <div class="service-item ">
-                <img src="image/datphong.png" alt="">
-                <p>Đặt phòng</p>
-            </div>
-            <div class="service-item ">
-                <img src="image/dichvu247.png" alt="">
-                <p>Dịch vụ 24/7</p>
-            </div>
-            <div class="service-item ">
-                <img src="image/guidebook.png" alt="">
-                <p>Guide book</p>
+                
+                <p>Chào mừng quý khách đến với trang web của chúng tôi - nguồn thông tin đáng tin cậy để khám phá những điểm du lịch nổi bật khi bạn đặt chân đến một thành phố. Với sự chuyên nghiệp và tâm huyết, chúng tôi đã tạo ra một nền tảng để cung cấp những gợi ý du lịch độc đáo và thú vị, giúp mọi hành trình của bạn trở nên đặc sắc.</p>
+                <p>Chúng tôi hoàn toàn hiểu rằng mỗi du khách có sở thích và mong muốn riêng biệt. Do đó, chúng tôi không chỉ tập trung vào việc cung cấp thông tin chính xác về điểm đến, mà còn đặt nặng vào việc hiểu rõ nhu cầu cá nhân của từng khách hàng. Tại đây, bạn sẽ tìm thấy những gợi ý hữu ích về những địa điểm hấp dẫn từ thành phố sôi động đến những khu vực hoang sơ tuyệt vời.</p>
+                <p>Chúng tôi không chỉ là nguồn thông tin mà còn là người đồng hành trung thành của bạn trong hành trình khám phá. Hãy để chúng tôi giúp bạn khám phá những điều mới mẻ, trải nghiệm văn hóa độc đáo và tận hưởng những khoảnh khắc đáng nhớ trên mỗi chuyến đi của bạn. Đến với chúng tôi, mỗi hành trình sẽ trở thành một kỷ niệm không thể quên!</p>
+                
             </div>
         </div>
     </div>
@@ -264,74 +248,7 @@
         </div>
     </div>
 </section>
-<section class="signup">
-    <h1 class="h1-style">Đăng kí</h1>
-    <div class="signup-content">
-        <input type="text" placeholder="Nhập email của bạn">
-        <button class="btn">Gửi</button>
-    </div>
-</section>
-<!-- --------------Contact------------ -->
-<section class="contact">
-    <div class="container">
-        <h1 class="h1-style">Liên hệ</h1>
-        <div class="contact-content-top row">
-          <div class="contact-content-item">
-            <input type="text" placeholder="Tên">
-          </div>
-          <div class="contact-content-item">
-            <input type="text" placeholder="Địa chỉ">
-          </div>
-          <div class="contact-content-item">
-            <input type="text" placeholder="Email">
-          </div>
-          <div class="contact-content-item">
-            <input type="text" placeholder="Số điện thoại">
-          </div>
-        </div>
-        <div class="contact-content-bottom">
-            <textarea placeholder="Nội dung"></textarea>
-            <button class="btn">Gửi</button>
-        </div>
-    </div>
-</section>
-<!-- Thêm modal -->
-<div id="tourModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="tourTitle"></h2>
-        <p id="tourDescription"></p>
-    </div>
-</div>
 
-<!-- Các tour hiển thị trên màn hình nhỏ -->
-<div class="tour-list">
-    <div class="tour-item" onclick="openTourDetails('Hà Nội Tour', 'Thông tin về tour ở Hà Nội.')">
-        <h3>Hà Nội Tour</h3>
-        <p>Mô tả ngắn về Hà Nội Tour...</p>
-    </div>
-    <!-- Các tour khác ở đây -->
-</div>
-
-<!-- Form tìm kiếm -->
-<form action="" onsubmit="return searchTour()">
-    <!-- Các trường tìm kiếm tour ở đây -->
-    <h1>Bạn muốn đi đâu?</h1>
-    <p>Địa điểm</p>
-    <select name="citySelect" id="citySelect">
-        <option value="#">--Xin mời chọn địa điểm--</option>
-        <option value="hanoi">Hà Nội</option>
-        <option value="danang">Đà Nẵng</option>
-        <option value="hochiminh">Hồ Chí Minh</option>
-    </select>
-    <!-- Các trường khác ở đây -->
-    <button type="submit">Tìm Kiếm</button>
-</form>
-
-<!-- Danh sách tour sẽ được hiển thị ở đây -->
-<div id="tourList" class="tour-list">
-    <!-- Danh sách tour sẽ được hiển thị ở đây -->
-</div>
 
 <!-- Các phần khác của trang web của bạn có thể xuất hiện ở đây -->
 
@@ -340,36 +257,6 @@
 </html>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Page</title>
 
-    <script>
-        // Hàm để lấy tham số từ URL
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
 
-        // Lấy giá trị của tham số 'city' từ URL
-        var cityValue = getParameterByName('city');
-        
-        // Hiển thị thông tin về thành phố
-        if (cityValue) {
-            document.write("<p>Thông tin về thành phố: " + cityValue + "</p>");
-        } else {
-            document.write("<p>Không có thông tin về thành phố.</p>");
-        }
-    </script>
-</head>
-<body>
-    <h1>Thông tin về thành phố</h1>
-</body>
 </html>
