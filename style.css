@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,900;1,300;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap');
 :root {
     --main-color: rgb(13, 213, 203);
     --subtext:  'Roboto', sans-serif;
@@ -165,6 +164,23 @@ form button {
     left: 50%;
     transform: translateX(-50%);
 }
+#tourList {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none;
+    z-index: 9999; /* Đảm bảo lớn hơn z-index của các phần tử khác */
+}
+
+
+
+
 /*----------------NICE PLACE---------- */
 .nice-place-item {
     width: 30%;
@@ -230,24 +246,7 @@ form button {
     margin: 20px 0;
     font-family: var(--subtext);
 }
-.service {
-    margin: 30px;
-}
-.service-item {
-    width: 30%;
-    text-align: center;
-    padding: 20px;
-    background-color: rgb(94, 219, 212);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-.service-item:hover{
-    box-shadow: 2px 2px 10px black;
-}
-.service-item img {
-    width: 150px;
-    margin-bottom: 6px;
-}
+
 
 /*----------------Tour----------- */
 .tour {
